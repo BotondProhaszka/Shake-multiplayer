@@ -32,12 +32,10 @@ public class MyInterface {
 	protected void globalInit() {
 		
 		stage.setTitle("Snake (v0.1b)");
-		stage.setWidth(900);
-		stage.setHeight(600);
-		stage.setMinHeight(300);
-		stage.setMinWidth(450);
-		stage.setFullScreen(settings.getFullScreen());
-		
+		stage.setWidth(1000);
+		stage.setHeight(800);
+		stage.setMinHeight(600);
+		stage.setMinWidth(800);		
 		
 		VBox parent = new VBox();
 		parent.setSpacing(10);
@@ -60,7 +58,6 @@ public class MyInterface {
         
         mainscene = scene;
         stage.setScene(scene);
-        stage.setFullScreen(settings.getFullScreen());
         stage.show();      
         
         
@@ -80,7 +77,7 @@ public class MyInterface {
         
         
 		gameButton.setOnAction(e -> {
-        	Game g = new Game();
+        	Game g = new Game(settings);
         	g.initGame(stage);
         });
 		parent.getChildren().add(gameButton);
