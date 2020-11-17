@@ -17,7 +17,7 @@ public class Field extends StackPane {
 	//private int id = 0;
 	
 	private Color empty_color = Color.BLACK;
-	private Color snake1_color = Color.PURPLE;
+	private Color snake1_color = Color.DEEPPINK;
 	private Color snake2_color = Color.BLUE;
 	private Color food_color = Color.RED;
 	
@@ -29,7 +29,7 @@ public class Field extends StackPane {
 		//img = new Image("file:grass.jpg", 9, 9, true, true);
         //ImageView iv = new ImageView(img);
         
-		setBorderFill(border, s);
+		setBorderFill(s);
 		//border.setStroke(Color.BLACK);
 		getChildren().addAll(border);
 	}
@@ -40,10 +40,10 @@ public class Field extends StackPane {
 	
 	protected synchronized void setFieldState(FieldState fs) {
 		state = fs;
-		setBorderFill(border, fs);
+		setBorderFill(fs);
 	}
 	
-	protected synchronized void setBorderFill(Rectangle border, FieldState s) {
+	protected synchronized void setBorderFill(FieldState s) {
 		if(s == FieldState.empty) {
 			//border.setFill(new ImagePattern(img));
 			border.setFill(empty_color);
