@@ -2,7 +2,6 @@ package application;
 
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 import application.Field.FieldState;
@@ -15,12 +14,31 @@ public class Map extends StackPane {
 	protected int foods;
 	protected int size = 50;
 	protected int sizeOfField = 9;
+	protected Settings set;
+	protected Game game;
 	
 	
-	protected Map() {
-		
+	protected Map(Settings s, Game g) {
+		set = s;
+		game = g;
 	}
 
+	protected Settings getSettings() {
+		return set;
+	}
+	
+	protected void setGame(Game g) {
+		game = g;
+	}
+	
+	protected Game getGame() {
+		return game; 
+	}
+	
+	protected List<Field> getMap(){
+		return map;
+	}
+	
 	protected void content(Pane parent) {
 		map = new ArrayList<>();
 		
@@ -60,28 +78,6 @@ public class Map extends StackPane {
 	
 	protected synchronized void addFood(int i) {
 		getMapElement(i).setFieldState(FieldState.food);
-		
-	}
-	
-	protected void kiir() {
-		for(int i = 0; i < 2500; i++) {
-			String string = new String();
-			FieldState fs = getMapElement(i).getFieldState();
-			if(fs == FieldState.snake1_body) {
-				string = "1 body\n";
-			} else if(fs == FieldState.snake1_head) {
-				string = "1 head\n";
-			} else if(fs == FieldState.snake2_body) {
-				string = "2 body\n";
-			} else if(fs == FieldState.snake2_head) {
-				string = "2 head\n";
-			} else if(fs == FieldState.food) {
-				string = "food\n";
-			} else
-				string = "";
-			System.out.print(string);
-				
-		}
 		
 	}
 }
